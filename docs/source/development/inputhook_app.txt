@@ -5,7 +5,7 @@ IPython GUI Support Notes
 IPython allows GUI event loops to be run in an interactive IPython session.
 This is done using Python's PyOS_InputHook hook which Python calls
 when the :func:`raw_input` function is called and waiting for user input.
-IPython has versions of this hook for wx, pyqt4 and pygtk.
+IPython has versions of this hook for wx, pyqt4, pygtk and pygobject.
 
 When a GUI program is used interactively within IPython, the event loop of
 the GUI should *not* be started. This is because, the PyOS_Inputhook itself

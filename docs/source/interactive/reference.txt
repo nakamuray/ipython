@@ -1147,7 +1147,7 @@ For users, enabling GUI event loop integration is simple.  You simple use the
     %gui [GUINAME]
 
 With no arguments, ``%gui`` removes all GUI support.  Valid ``GUINAME``
-arguments are ``wx``, ``qt4``, ``gtk`` and ``tk``.
+arguments are ``wx``, ``qt4``, ``gtk``, ``gtk3`` and ``tk``.
 
 Thus, to use wxPython interactively and create a running :class:`wx.App`
 object, do::
@@ -1247,7 +1247,7 @@ To start IPython with matplotlib support, use the ``--pylab`` switch.  If no
 arguments are given, IPython will automatically detect your choice of
 matplotlib backend.  You can also request a specific backend with
 ``--pylab=backend``, where ``backend`` must be one of: 'tk', 'qt', 'wx', 'gtk',
-'osx'.
+'gtk3', 'osx'.
 
 .. _Matplotlib: http://matplotlib.sourceforge.net
 

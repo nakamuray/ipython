@@ -28,6 +28,7 @@ GUI_WX = 'wx'
 GUI_QT = 'qt'
 GUI_QT4 = 'qt4'
 GUI_GTK = 'gtk'
+GUI_GTK3 = 'gtk3'
 GUI_TK = 'tk'
 GUI_OSX = 'osx'
 
@@ -253,6 +254,33 @@ class InputHookManager(object):
         """
         self.clear_inputhook()
 
+    def enable_gtk3(self, app=None):
+        """Enable event loop integration with PyGobject.
+
+        Parameters
+        ----------
+        app : ignored
+           Ignored, it's only a placeholder to keep the call signature of all
+           gui activation methods consistent, which simplifies the logic of
+           supporting magics.
+
+        Notes
+        -----
+        This methods sets the PyOS_InputHook for PyGobject, which allows
+        the PyGobject to integrate with terminal based applications like
+        IPython.
+        """
+        from IPython.lib.inputhookgtk3 import inputhook_gtk3
+        self.set_inputhook(inputhook_gtk3)
+        self._current_gui = GUI_GTK3
+
+    def disable_gtk3(self):
+        """Disable event loop integration with PyGobject.
+        
+        This merely sets PyOS_InputHook to NULL.
+        """
+        self.clear_inputhook()
+
     def enable_tk(self, app=None):
         """Enable event loop integration with Tk.
 
@@ -296,6 +324,8 @@ enable_qt4 = inputhook_manager.enable_qt4
 disable_qt4 = inputhook_manager.disable_qt4
 enable_gtk = inputhook_manager.enable_gtk
 disable_gtk = inputhook_manager.disable_gtk
+enable_gtk3 = inputhook_manager.enable_gtk3
+disable_gtk3 = inputhook_manager.disable_gtk3
 enable_tk = inputhook_manager.enable_tk
 disable_tk = inputhook_manager.disable_tk
 clear_inputhook = inputhook_manager.clear_inputhook
@@ -333,6 +363,7 @@ def enable_gui(gui=None, app=None):
             GUI_OSX: lambda app=False: None,
             GUI_TK: enable_tk,
             GUI_GTK: enable_gtk,
+            GUI_GTK3: enable_gtk3,
             GUI_WX: enable_wx,
             GUI_QT: enable_qt4, # qt3 not supported
             GUI_QT4: enable_qt4 }

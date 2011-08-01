@@ -3326,6 +3326,7 @@ Defaulting color scheme to 'NoColor'"""
             %gui wx      # enable wxPython event loop integration
             %gui qt4|qt  # enable PyQt4 event loop integration
             %gui gtk     # enable PyGTK event loop integration
+            %gui gtk3    # enable PyGobject event loop integration
             %gui tk      # enable Tk event loop integration
             %gui         # disable all event loop integration
 
@@ -3419,7 +3420,7 @@ Defaulting color scheme to 'NoColor'"""
         Parameters
         ----------
         guiname : optional
-          One of the valid arguments to the %gui magic ('qt', 'wx', 'gtk', 'osx' or
+          One of the valid arguments to the %gui magic ('qt', 'wx', 'gtk', 'gtk3', 'osx' or
           'tk').  If given, the corresponding Matplotlib backend is used,
           otherwise matplotlib's default (which you can override in your
           matplotlib config file) is used.

@@ -433,8 +433,8 @@ class TerminalInteractiveShell(InteractiveShell):
         gui : optional, string
 
           If given, dictates the choice of matplotlib GUI backend to use
-          (should be one of IPython's supported backends, 'tk', 'qt', 'wx' or
-          'gtk'), otherwise we use the default chosen by matplotlib (as
+          (should be one of IPython's supported backends, 'tk', 'qt', 'wx',
+          'gtk' or 'gtk3'), otherwise we use the default chosen by matplotlib (as
           dictated by the matplotlib build-time options plus the user's
           matplotlibrc configuration file).
         """

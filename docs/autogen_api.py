@@ -41,6 +41,7 @@ if __name__ == '__main__':
                                         r'\.parallel\.controller\.mongodb',
                                         r'\.lib\.inputhookwx',
                                         r'\.lib\.inputhookgtk',
+                                        r'\.lib\.inputhookgtk3',
                                         r'\.cocoa',
                                         r'\.ipdoctest',
                                         r'\.Gnuplot',
